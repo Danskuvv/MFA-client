@@ -3,9 +3,8 @@ import { Button } from './ui/button';
 const Setup2FA = (props: { qrCodeUrl: string; switchForm: () => void }) => {
   return (
     <div className="p-4">
-      {
-        // TODO: add image element with qrCodeUrl as src and a Button with switchForm function
-      }
+      <img src={props.qrCodeUrl} alt="QR Code" className="mb-4" />
+      <Button onClick={props.switchForm}>Switch Form</Button>
     </div>
   );
 };

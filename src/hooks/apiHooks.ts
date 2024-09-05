@@ -40,8 +40,13 @@ const use2FA = () => {
       },
       body: JSON.stringify(user),
     };
+// fetch and return qrCodeUrl from 2FA server /auth/setup
+    const response = await fetchData<{ qrCodeUrl: string }>(
+      import.meta.env.VITE_2FA_API + '/auth/setup',
+      options,
+    );
 
-    // TODO: fetch and return qrCodeUrl from 2FA server /auth/setup
+    return response.qrCodeUrl;
   };
 
   const postVerify = async (creds: Credentials) => {
